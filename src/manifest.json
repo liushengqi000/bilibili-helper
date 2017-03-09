@@ -1,38 +1,78 @@
 {
-   "background": {
-      "page": "background.html",
-      "persistent": true
-   },
-   "browser_action": {
-      "default_icon": {
-         "19": "imgs/icon-19.png",
-         "38": "imgs/icon-38.png"
-      },
-      "default_popup": "popup.html",
-      "default_title": "__MSG_extShortName__"
-   },
-   "content_scripts": [ {
-      "all_frames": true,
-      "js": [ "bilibili_ASS_Danmaku_Downloader.min.js", "store.min.js", "filename-sanitize.min.js", "jq.bilibili.min.js", "bilibili_injected.min.js","ocrad.min.js","bilibili_live.min.js", "ColPick.min.js", "CommentCoreLibrary.min.js", "ABPlayer.min.js", "hls.min.js" ],
-      "matches": [ "*://*.bilibili.com/*" ],
-      "run_at": "document_end"
-   } ],
-   "default_locale": "zh_CN",
-   "description": "__MSG_extDescription__",
-   "icons": {
-      "256": "imgs/icon-256.png",
-      "128": "imgs/icon-128.png",
-      "16": "imgs/icon-16.png",
-      "32": "imgs/icon-32.png"
-   },
-   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDd/wqh8sN1lnVWVGyKqhGM0Zz0ZuY3Dq5hNK3qNBw1/+B/XGe+zzwe7aSyr0qikd8pkN5HpoDvEDdkFHcdhPwXWoQGKiNAnKtohuz/2+g5YzLYzQg2bRqKdYJebEoCoiHtoSNS/HRtUeg483ypAH26LLyD6p+ykwQNo9DvtBo0kwIDAQAB",
-   "manifest_version": 2,
-   "name": "__MSG_extName__",
-   "short_name": "__MSG_extShortName__",
-   "options_page": "options.html",
-   "permissions": [ "downloads", "alarms", "contextMenus", "cookies", "notifications", "storage", "tabs", "webRequest", "webRequestBlocking", "http://*/", "https://*/" ],
-   "update_url": "https://clients2.google.com/service/update2/crx",
-   "version": "0.8.16.17",
-   "content_security_policy":"script-src 'unsafe-eval'; object-src 'self'",
-   "web_accessible_resources": [ "bilibili-helper.woff", "template.html", "imgs/icon-32.png", "imgs/loading.gif", "imgs/jinkela.png", "imgs/loading.gif", "imgs/helper-neko.png","imgs/icon.png", "options.html", "imgs/menu-icon.png", "live.min.css", "live-content-script.min.js"]
+    // Required
+    "manifest_version": 3,
+    "version": "0.9",
+    "name": "__MSG_extName__",
+
+    // Recommended
+    "default_locale": "zh_CN",
+    "description": "__MSG_extDescription__",
+    "icons": {
+        "256": "imgs/icon-256.png",
+        "128": "imgs/icon-128.png",
+        "16": "imgs/icon-16.png",
+        "32": "imgs/icon-32.png"
+    },
+    // Pick one (or none)
+    "browser_action": {
+        "default_icon": {
+            "19": "imgs/icon-19.png",
+            "38": "imgs/icon-38.png"
+        },
+        "default_popup": "popup.html",
+        "default_title": "__MSG_extShortName__"
+    },
+    // Options
+    "options_page": "options.html", //old but specify both the options_ui and the options_page fields
+    "options_ui": {
+        "page": "options.html",
+        "chrome_style": false,
+        "open_in_tab": true
+    },
+    // Optional
+    "short_name": "__MSG_extShortName__",
+    "author": "",
+    "background": {
+        "page": "background.html",
+        "persistent": true
+    },
+    "content_scripts": [{
+        "matches": ["*://*.bilibili.com/*"],
+        "all_frames": false,
+        "css":[
+        ],
+        "js": [
+            "bilibili_ASS_Danmaku_Downloader.min.js",
+            "store.min.js", "filename-sanitize.min.js",
+            "jq.bilibili.min.js",
+            "bilibili_injected.min.js",
+            "ocrad.min.js",
+            "bilibili_live.min.js",
+            "ColPick.min.js",
+            "CommentCoreLibrary.min.js",
+            "ABPlayer.min.js",
+            "hls.min.js"
+        ],
+
+        "run_at": "document_end"
+    }],
+
+    "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDd/wqh8sN1lnVWVGyKqhGM0Zz0ZuY3Dq5hNK3qNBw1/+B/XGe+zzwe7aSyr0qikd8pkN5HpoDvEDdkFHcdhPwXWoQGKiNAnKtohuz/2+g5YzLYzQg2bRqKdYJebEoCoiHtoSNS/HRtUeg483ypAH26LLyD6p+ykwQNo9DvtBo0kwIDAQAB",
+    "permissions": [
+        "downloads",
+        "alarms",
+        "notifications",
+        "http://*/",
+        "https://*/",
+        //witch dont cause warning ↓
+        "cookies",
+        "contextMenus",
+        "storage",
+        "tabs",
+        "webRequest",
+        "webRequestBlocking"
+    ],
+    "update_url": "https://clients2.google.com/service/update2/crx",
+    "content_security_policy": "script-src 'unsafe-eval'; object-src 'self'",
+    "web_accessible_resources": ["bilibili-helper.woff", "template.html", "imgs/icon-32.png", "imgs/loading.gif", "imgs/jinkela.png", "imgs/loading.gif", "imgs/helper-neko.png", "imgs/icon.png", "options.html", "imgs/menu-icon.png", "live.min.css", "live-content-script.min.js"]
 }

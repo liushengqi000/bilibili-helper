@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         uglify: {
@@ -11,10 +11,9 @@ module.exports = function(grunt) {
             release: {
                 files: [{
                     expand: true,
-                    cwd: 'src',
-                    src: ['**/*.js', '!**/*.min.js'],
-                    ext: '.min.js',
-                    dest: 'dest/'
+                    cwd: 'src/js',
+                    src: ['**/*.js'],
+                    dest: 'dest/js'
                 }]
             }
         },
@@ -30,8 +29,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: 'src',
                     src: ['**/*.html'],
-                    dest: 'dest/',
-                    ext: '.html'
+                    dest: 'dest/'
                 }]
             },
         },
@@ -43,10 +41,9 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: 'src',
+                    cwd: 'src/styles/',
                     src: ['**/*.css', '!**/*.min.css'],
-                    dest: 'dest/',
-                    ext: '.min.css'
+                    dest: 'dest/'
                 }]
             }
         },
@@ -55,7 +52,27 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: 'src',
-                    src: ['**/**', '!**/*.html', '!**/*.js', '**/*.min.js', '!**/*.css', '**/*.min.css', '_locales/**'],
+                    src: ['./*.html'],
+                    dest: 'dest/'
+                }, {
+                    expand: true,
+                    cwd: 'src',
+                    src: ['./js/lib/*.*.js'],
+                    dest: 'dest/js'
+                }, {
+                    expand: true,
+                    cwd: 'src',
+                    src: ['./styles/*.css'],
+                    dest: 'dest/'
+                }, {
+                    expand: true,
+                    cwd: 'src',
+                    src: ['./_locales/*/*'],
+                    dest: 'dest/'
+                }, {
+                    expand: true,
+                    cwd: 'src',
+                    src: ['./imgs/**/*'],
                     dest: 'dest/'
                 }]
             }

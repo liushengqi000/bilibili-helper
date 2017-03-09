@@ -15,10 +15,6 @@
     "message": "Go to bilibili.com",
     "description": "Popup Button: go_bili"
   },
-  "goBiliLive": {
-    "message": "Go to Bilibili Live",
-    "description": "Popup Button: go_bili_live"
-  },
   "adModeOff": {
     "message": "Enter AD Mode",
     "description": "Popup Button: ad_mode_off"

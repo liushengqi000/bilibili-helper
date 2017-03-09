@@ -73,6 +73,8 @@ $(document).ready(function () {
     $("div[option=\"" + bkg_page.getOption("autoTreasure") + "\"].autoTreasure").addClass("on");
     $("div[option=\"" + bkg_page.getOption("danmu") + "\"].danmu").addClass("on");
     $("div[option=\"" + bkg_page.getOption("liveNotification") + "\"].liveNotification").addClass("on");
+    $("div[option=\"" + bkg_page.getOption("bet") + "\"].bet").addClass("on");
+    $("div[option=\"" + bkg_page.getOption("beat") + "\"].beat").addClass("on");
 
     //chat-display
     $("div[option=\"" + bkg_page.getOption("chatDisplay") + "\"].chatDisplay").addClass("on");
@@ -100,6 +102,8 @@ $(document).ready(function () {
         $(".watcher-notify-option .option ."+wn_options[i]+"[option=\"off\"]").removeClass("on");
         $(".watcher-notify-option .option ."+wn_options[i]+"[option=\"on\"]").addClass("on");
     });
+
+    $("div[option=\"" + bkg_page.getOption("watcherDataClean") + "\"].watcherDataClean").addClass("on");
 
     var adOption = bkg_page.getOption("ad");
     $("div[option=\"" + adOption + "\"].ad").addClass("on");
@@ -201,6 +205,20 @@ $(document).ready(function () {
         bkg_page.setOption("danmu", $(this).attr("option"));
         // updatepreview();
     });
+    $('.bet').click(function () {
+        if ($(this).hasClass('on')) return false;
+        $('.bet').removeClass('on');
+        $(this).addClass('on');
+        bkg_page.setOption("bet", $(this).attr("option"));
+        // updatepreview();
+    });
+    $('.beat').click(function () {
+        if ($(this).hasClass('on')) return false;
+        $('.beat').removeClass('on');
+        $(this).addClass('on');
+        bkg_page.setOption("beat", $(this).attr("option"));
+        // updatepreview();
+    });
     $('.giftpackage').click(function () {
         if ($(this).hasClass('on')) return false;
         $('.giftpackage').removeClass('on');
@@ -289,6 +307,13 @@ $(document).ready(function () {
             if(index != -1) watchNotifyList.splice(index,1);
         }
         bkg_page.setOption("watchNotifyList", JSON.stringify(watchNotifyList));
+    });
+    $('.watcherDataClean').click(function () {
+        if ($(this).hasClass('on')) return false;
+        $('.watcherDataClean').removeClass('on');
+        $(this).addClass('on');
+        bkg_page.setOption("watcherDataClean", $(this).attr("option"));
+        // updatepreview();
     });
     function initUpList() {
         var list    = Live.get('favouritesList');

@@ -36,7 +36,6 @@ $(document).ready(function() {
 		}
 	});
 	$('#go_bili').html(chrome.i18n.getMessage('goBili'));
-	$('#go_bili_live').html(chrome.i18n.getMessage('goBiliLive'));
 	$('#ad_mode').html(chrome.i18n.getMessage('adModeOff'));
 	$('#go_video').html(chrome.i18n.getMessage('goVideo'));
 	$('#go_option').html(chrome.i18n.getMessage('goOption'));
@@ -53,12 +52,6 @@ $(document).ready(function() {
 		});
 		return false;
 	});
-	$('#go_bili_live').click(function() {
-		chrome.tabs.create({
-			url: "http://live.bilibili.com/"
-		});
-		return false;
-	});
 	$('#go_dynamic').click(function() {
 		bkg_page.chrome.browserAction.setBadgeText({
 			text: ""
@@ -71,7 +64,7 @@ $(document).ready(function() {
 	});
 	$('#go_favorite').click(function() {
 		chrome.tabs.create({
-			url: "http://space.bilibili.com/#!/favlist"
+			url: "http://member.bilibili.com/#favorite_manage"
 		});
 		return false;
 	});
