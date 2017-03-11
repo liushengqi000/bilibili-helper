@@ -77,7 +77,7 @@
         "webRequestBlocking"
     ],
     "update_url": "https://clients2.google.com/service/update2/crx",
-    "content_security_policy": "script-src 'sha256-9uKpB5ZprUXr6gL2tN21RXI4jswvQeqs8/ztXty9gHQ=' 'unsafe-eval'; object-src 'self';",
+    "content_security_policy": "script-src 'sha256-0cn/YtxgZrtGMtyws4UTyVB61+L46BfbUtQZpzIOE+c=' 'unsafe-eval'; object-src 'self';",
     "web_accessible_resources": [
         //"bilibili-helper.woff",
         //"template.html",
