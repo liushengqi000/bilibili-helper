@@ -1,55 +1,34 @@
 var gulp = require('gulp');
 var typescript = require('typescript');
 var tsc = require('gulp-typescript');
+var del  = require('del');
 var systemjsBuilder = require('systemjs-builder');
 var tscOption = require('./tsconfig.json').compilerOptions;
 gulp.task('tsc', function () {
   return gulp.src(['ts/**/*.ts', 'typings/index.d.ts'])
-    .pipe(tsc(tscOption)).js.pipe(gulp.dest('dest'));
+    .pipe(tsc(tscOption)).js.pipe(gulp.dest('js'));
 });
 gulp.task('background-tsc', function () {
   return gulp.src(['ts/background/**/*.ts', 'typings/index.d.ts'])
-    .pipe(tsc(tscOption)).js.pipe(gulp.dest('dest/background'));
+    .pipe(tsc(tscOption)).js.pipe(gulp.dest('js/background'));
 });
 gulp.task('popup-tsc', function () {
   return gulp.src(['ts/popup/**/*.ts', 'typings/index.d.ts'])
-    .pipe(tsc(tscOption)).js.pipe(gulp.dest('dest/popup'));
+    .pipe(tsc(tscOption)).js.pipe(gulp.dest('js/popup'));
 });
 gulp.task('option-tsc', function () {
   return gulp.src(['ts/option/**/*.ts', 'typings/index.d.ts'])
-    .pipe(tsc(tscOption)).js.pipe(gulp.dest('dest/option'));
+    .pipe(tsc(tscOption)).js.pipe(gulp.dest('js/option'));
 });
-gulp.task('bundle-config', function () {
-  return gulp.src('./systemjs.config.js')
-    .pipe(gulp.dest('dest/configs'))
-    .pipe(gulp.dest('production/js'));
+gulp.task('bundle-app', ['tsc'], function () {
+  return gulp.src('./systemjs.config.js').pipe(gulp.dest('./js'));
 });
-gulp.task('bundle-background', ['bundle-config', 'background-tsc'], function () {
-  var builder = new systemjsBuilder('', 'dest/configs/systemjs.config.js');
-  return builder.bundle('[dest/background/**/*]', 'production/js/background.js', {
-    minfy: true,
-    mangle: true
-  }).then(function () { console.log('Build complete'); }).catch(function (err) { console.error(err); });
-});
-gulp.task('bundle-popup', ['bundle-config', 'popup-tsc'], function () {
-  var builder = new systemjsBuilder('', 'dest/configs/systemjs.config.js');
-  return builder.bundle('[dest/popup/**/*]', 'production/js/popup.js', {
-    minfy: true,
-    mangle: true
-  }).then(function () { console.log('Build complete'); }).catch(function (err) { console.error(err); });
-});
-gulp.task('bundle-option', ['bundle-config', 'option-tsc'], function () {
-  var builder = new systemjsBuilder('', 'dest/configs/systemjs.config.js');
-  return builder.bundle('[dest/option/**/*]', 'production/js/option.js', {
-    minfy: true,
-    mangle: true
-  }).then(function () { console.log('Build complete'); }).catch(function (err) { console.error(err); });
-});
-gulp.task('bundle-dependencies', ['bundle-config', 'tsc'], function () {
-  var builder = new systemjsBuilder('', 'dest/configs/systemjs.config.js');
-  return builder.bundle('dest/**/* - [dest/**/*.js]', 'production/js/dependencies.bundle.min.js', {
+gulp.task('clean',function(cb){return del(['./js']);})
+gulp.task('bundle-dependencies', ['tsc'], function () {
+  var builder = new systemjsBuilder('', './systemjs.config.js');
+  return builder.bundle('js/**/* - [js/**/*.js]', './js/dependencies.bundle.min.js', {
     minify: true,
     mangle: true
   }).then(function () { console.log('Build complete'); }).catch(function (err) { console.error(err); });
 });
-gulp.task('production', ['bundle-background', 'bundle-popup', 'bundle-option', 'bundle-dependencies'], function () { });
+gulp.task('production', ['clean','bundle-dependencies'], function () { });

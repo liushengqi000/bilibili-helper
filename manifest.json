@@ -43,8 +43,8 @@
             "all_frames": false,
             "css": [],
             "js": [
-                "./js/libs/bilibili_ASS_Danmaku_Downloader.js",
-                "./js/libs/store.min.js"
+                "./libs/bilibili_ASS_Danmaku_Downloader.js",
+                "./libs/store.min.js"
             ],
             "run_at": "document_end"
         },
@@ -55,8 +55,8 @@
             "all_frames": false,
             "css": [],
             "js": [
-                "./js/libs/store.min.js",
-                "./js/libs/ocrad.min.js"
+                "./libs/store.min.js",
+                "./libs/ocrad.min.js"
             ],
             "run_at": "document_end"
         }
