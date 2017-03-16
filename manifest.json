@@ -35,8 +35,7 @@
         "page": "background.html",
         "persistent": true
     },
-    "content_scripts": [
-        {
+    "content_scripts": [{
             "matches": [
                 "*://www.bilibili.com/*"
             ],
@@ -63,11 +62,6 @@
     ],
     "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDd/wqh8sN1lnVWVGyKqhGM0Zz0ZuY3Dq5hNK3qNBw1/+B/XGe+zzwe7aSyr0qikd8pkN5HpoDvEDdkFHcdhPwXWoQGKiNAnKtohuz/2+g5YzLYzQg2bRqKdYJebEoCoiHtoSNS/HRtUeg483ypAH26LLyD6p+ykwQNo9DvtBo0kwIDAQAB",
     "permissions": [
-        "downloads",
-        "alarms",
-        "notifications",
-        //"http://*/",
-        //"https://*/",
         //witch dont cause warning ↓
         "cookies",
         "contextMenus",
@@ -76,18 +70,21 @@
         "webRequest",
         "webRequestBlocking"
     ],
+    "optional_permissions": [
+        //witch do cause warning ↓
+        "alarms",
+        "notifications",
+        "downloads"
+    ],
     "update_url": "https://clients2.google.com/service/update2/crx",
-    "content_security_policy": "script-src 'sha256-0cn/YtxgZrtGMtyws4UTyVB61+L46BfbUtQZpzIOE+c=' 'unsafe-eval'; object-src 'self';",
+    "content_security_policy": "script-src 'self' 'sha256-djlbBIFl6eedqc3zmTzhL60KaZ+wwUa/1H2ADQePIgI=' 'sha256-LkCy0gNe/5MkjcPPwkvS2b2owGLxD/jxJ8uvcc3/60A=' 'sha256-nF3es/wPrKnfy95DVEJAtl3jx/p7XLQ8ZvKFZU5VomE=' 'unsafe-eval'; object-src 'self';",
     "web_accessible_resources": [
-        //"bilibili-helper.woff",
-        //"template.html",
         "imgs/icon-32.png",
         "imgs/loading.gif",
         "imgs/jinkela.png",
         "imgs/loading.gif",
         "imgs/helper-neko.png",
         "imgs/icon.png",
-        "options.html",
         "imgs/menu-icon.png",
         "live.min.css"
     ]

@@ -10,22 +10,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 const core_1 = require('@angular/core');
 const platform_browser_1 = require('@angular/platform-browser');
-const app_component_1 = require('./app.component');
-const app_service_1 = require('./app.service');
-let AppModule = class AppModule {
+const background_service_1 = require('./background.service');
+let BackgroundModule = class BackgroundModule {
     constructor(appService) {
         this.appService = appService;
         this.appService.writeHeros();
     }
+    ngDoBootstrap() { }
 };
-AppModule = __decorate([
+BackgroundModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule],
-        declarations: [app_component_1.AppComponent],
-        bootstrap: [app_component_1.AppComponent],
-        providers: [app_service_1.AppService]
+        declarations: [],
+        bootstrap: [],
+        providers: [background_service_1.BackgroundService]
     }), 
-    __metadata('design:paramtypes', [app_service_1.AppService])
-], AppModule);
-exports.AppModule = AppModule;
+    __metadata('design:paramtypes', [background_service_1.BackgroundService])
+], BackgroundModule);
+exports.BackgroundModule = BackgroundModule;
 ;

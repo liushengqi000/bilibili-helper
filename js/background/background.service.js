@@ -9,19 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
-class Hero {
-}
-exports.Hero = Hero;
-let AppComponent = class AppComponent {
-    constructor() {
-        this.name = 'Angular!!';
+let BackgroundService = class BackgroundService {
+    writeHeros() {
+        console.log([
+            { id: 11, name: 'Mr. Nice' },
+            { id: 12, name: 'Narco' },
+            { id: 13, name: 'Bombasto' },
+            { id: 14, name: 'Celeritas' },
+            { id: 15, name: 'Magneta' },
+            { id: 16, name: 'RubberMan' },
+            { id: 17, name: 'Dynama' },
+            { id: 18, name: 'Dr IQ' },
+            { id: 19, name: 'Magma' },
+            { id: 20, name: 'Tornado' }
+        ]);
     }
 };
-AppComponent = __decorate([
-    core_1.Component({
-        selector: 'my-app',
-        template: `<h1>aaa{{name}}</h1>`
-    }), 
+BackgroundService = __decorate([
+    core_1.Injectable(), 
     __metadata('design:paramtypes', [])
-], AppComponent);
-exports.AppComponent = AppComponent;
+], BackgroundService);
+exports.BackgroundService = BackgroundService;

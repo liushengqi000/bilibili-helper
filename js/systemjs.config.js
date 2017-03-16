@@ -13,7 +13,9 @@
     // map tells the System loader where to look for things
     map: {
       // our app is within the app folder
-      app: 'dest',
+      background: 'js/background',
+      option: 'js/option',
+      popup: 'js/popup',
 
       // angular bundles
       '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
@@ -28,24 +30,32 @@
       // other libraries
       'rxjs': 'npm:rxjs',
     },
-    bundles:{
-        '@angular2':[
-          '@angular/core',
-          '@angular/common',
-          '@angular/compiler',
-          '@angular/platform-browser',
-          '@angular/platform-browser-dynamic',
-          '@angular/http',
-          '@angular/router',
-          '@angular/forms',
-          ]
+    bundles: {
+      '@angular2': [
+        '@angular/core',
+        '@angular/common',
+        '@angular/compiler',
+        '@angular/platform-browser',
+        '@angular/platform-browser-dynamic',
+        '@angular/http',
+        '@angular/router',
+        '@angular/forms',
+      ]
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
-       app: { 
-         main: './js/background.js', 
-         defaultExtension: 'js'
-         },
+      background: {
+        main: 'background',
+        defaultExtension: 'js'
+      },
+      option:{
+        main: 'option',
+        defaultExtension: 'js'
+      },
+      popup:{
+        main: 'popup',
+        defaultExtension: 'js'
+      },
       dest: {
         defaultExtension: 'js'
       },

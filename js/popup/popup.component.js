@@ -9,19 +9,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
-class Hero {
-}
-exports.Hero = Hero;
-let AppComponent = class AppComponent {
-    constructor() {
-        this.name = 'Angular!!';
-    }
+let PopupComponent = class PopupComponent {
 };
-AppComponent = __decorate([
+PopupComponent = __decorate([
     core_1.Component({
-        selector: 'my-app',
-        template: `<h1>aaa{{name}}</h1>`
+        moduleId: 'popup',
+        selector: 'popup',
+        template: './popup.html',
+        providers: []
     }), 
     __metadata('design:paramtypes', [])
-], AppComponent);
-exports.AppComponent = AppComponent;
+], PopupComponent);
+exports.PopupComponent = PopupComponent;

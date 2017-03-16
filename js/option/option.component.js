@@ -9,24 +9,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
-let AppService = class AppService {
-    writeHeros() {
-        console.log([
-            { id: 11, name: 'Mr. Nice' },
-            { id: 12, name: 'Narco' },
-            { id: 13, name: 'Bombasto' },
-            { id: 14, name: 'Celeritas' },
-            { id: 15, name: 'Magneta' },
-            { id: 16, name: 'RubberMan' },
-            { id: 17, name: 'Dynama' },
-            { id: 18, name: 'Dr IQ' },
-            { id: 19, name: 'Magma' },
-            { id: 20, name: 'Tornado' }
-        ]);
-    }
+let OptionComponent = class OptionComponent {
 };
-AppService = __decorate([
-    core_1.Injectable(), 
+OptionComponent = __decorate([
+    core_1.Component({
+        moduleId: 'option',
+        selector: 'option',
+        template: './option.html',
+        providers: []
+    }), 
     __metadata('design:paramtypes', [])
-], AppService);
-exports.AppService = AppService;
+], OptionComponent);
+exports.OptionComponent = OptionComponent;
