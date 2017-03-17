@@ -9,5 +9,5 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @Description: Modify Here, Please
  */
 var platform_browser_dynamic_1 = require("@angular/platform-browser-dynamic");
-var bh_popup_module_1 = require("../bh-popup/bh-popup.module");
-platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(bh_popup_module_1.BhPopupModule);
+var bh_background_module_1 = require("./bh-background.module");
+platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(bh_background_module_1.BhBackgroundModule);

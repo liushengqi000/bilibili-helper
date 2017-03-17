@@ -8,17 +8,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-const core_1 = require('@angular/core');
-const platform_browser_1 = require('@angular/platform-browser');
-const bh_option_component_1 = require('./bh-option.component');
-let BhOptionModule = class BhOptionModule {
-};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var platform_browser_1 = require("@angular/platform-browser");
+var bh_option_component_1 = require("./bh-option.component");
+var bh_button_component_1 = require("../bh-button/bh-button.component");
+var BhOptionModule = (function () {
+    function BhOptionModule() {
+    }
+    BhOptionModule.prototype.ngDoBootstrap = function () { };
+    return BhOptionModule;
+}());
 BhOptionModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule],
-        declarations: [bh_option_component_1.BhOptionComponent],
+        declarations: [
+            bh_option_component_1.BhOptionComponent,
+            bh_button_component_1.BhButtonComponent
+        ],
         bootstrap: [bh_option_component_1.BhOptionComponent]
-    }), 
-    __metadata('design:paramtypes', [])
+    }),
+    __metadata("design:paramtypes", [])
 ], BhOptionModule);
 exports.BhOptionModule = BhOptionModule;

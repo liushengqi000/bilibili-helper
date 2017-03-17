@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 @Component({
+    moduleId: module.id,
     selector: 'bh-popup',
-    templateUrl: './templates/bh-popup.html',
-    providers: []
+    templateUrl: './bh-popup.html',
+    styleUrls: ['./bh-popup.css']
 }) export class BhPopupComponent {
 
 }

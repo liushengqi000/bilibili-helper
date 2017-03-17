@@ -7,20 +7,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var platform_browser_1 = require("@angular/platform-browser");
-var bh_popup_component_1 = require("./bh-popup.component");
-var BhPopupModule = (function () {
-    function BhPopupModule() {
+var BhButtonComponent = (function () {
+    function BhButtonComponent() {
     }
-    BhPopupModule.prototype.ngDoBootstrap = function () { };
-    return BhPopupModule;
+    return BhButtonComponent;
 }());
-BhPopupModule = __decorate([
-    core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule],
-        providers: [],
-        declarations: [bh_popup_component_1.BhPopupComponent],
-        bootstrap: [bh_popup_component_1.BhPopupComponent]
+BhButtonComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'bh-button',
+        templateUrl: './bh-button.html',
+        styleUrls: ['./bh-button.css']
     })
-], BhPopupModule);
-exports.BhPopupModule = BhPopupModule;
+], BhButtonComponent);
+exports.BhButtonComponent = BhButtonComponent;
