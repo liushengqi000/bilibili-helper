@@ -9,18 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
-const platform_browser_1 = require('@angular/platform-browser');
-const option_component_1 = require('./option.component');
-let OptionModule = class OptionModule {
-    ngDoBootstrap() { }
+let BhBackgroundService = class BhBackgroundService {
+    writeHeros() {
+        console.log([
+            { id: 11, name: 'Mr. Nice' },
+            { id: 12, name: 'Narco' },
+            { id: 13, name: 'Bombasto' },
+            { id: 14, name: 'Celeritas' },
+            { id: 15, name: 'Magneta' },
+            { id: 16, name: 'RubberMan' },
+            { id: 17, name: 'Dynama' },
+            { id: 18, name: 'Dr IQ' },
+            { id: 19, name: 'Magma' },
+            { id: 20, name: 'Tornado' }
+        ]);
+    }
 };
-OptionModule = __decorate([
-    core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule],
-        providers: [],
-        declarations: [option_component_1.OptionComponent],
-        bootstrap: [option_component_1.OptionComponent]
-    }), 
+BhBackgroundService = __decorate([
+    core_1.Injectable(), 
     __metadata('design:paramtypes', [])
-], OptionModule);
-exports.OptionModule = OptionModule;
+], BhBackgroundService);
+exports.BhBackgroundService = BhBackgroundService;

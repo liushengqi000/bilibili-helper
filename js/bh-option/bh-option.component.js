@@ -9,18 +9,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
-const platform_browser_1 = require('@angular/platform-browser');
-const popup_component_1 = require('./popup.component');
-let PopupModule = class PopupModule {
-    ngDoBootstrap() { }
+let BhOptionComponent = class BhOptionComponent {
 };
-PopupModule = __decorate([
-    core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule],
-        providers: [],
-        declarations: [popup_component_1.PopupComponent],
-        bootstrap: [popup_component_1.PopupComponent]
+BhOptionComponent = __decorate([
+    core_1.Component({
+        selector: 'bh-option',
+        templateUrl: './templates/bh-option.html'
     }), 
     __metadata('design:paramtypes', [])
-], PopupModule);
-exports.PopupModule = PopupModule;
+], BhOptionComponent);
+exports.BhOptionComponent = BhOptionComponent;

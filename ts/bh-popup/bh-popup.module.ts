@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { PopupComponent } from './popup.component'
+import { BhPopupComponent } from './bh-popup.component'
 
 @NgModule({
     imports: [BrowserModule],
     providers: [],
-    declarations: [PopupComponent],
-    bootstrap: [PopupComponent]
-}) export class PopupModule {
+    declarations: [BhPopupComponent],
+    bootstrap: [BhPopupComponent]
+}) export class BhPopupModule {
     ngDoBootstrap() { }
 }

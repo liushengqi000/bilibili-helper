@@ -1,10 +1,14 @@
 var gulp = require('gulp');
+var gulpCopy = require('gulp-copy');
 var typescript = require('typescript');
 var tsc = require('gulp-typescript');
-var del  = require('del');
+var del = require('del');
 var systemjsBuilder = require('systemjs-builder');
 var tscOption = require('./tsconfig.json').compilerOptions;
-gulp.task('tsc', function () {
+gulp.task('clean', function (cb) {
+  return del(['./js','./templates']);
+})
+gulp.task('tsc', ['clean'], function () {
   return gulp.src(['ts/**/*.ts', 'typings/index.d.ts'])
     .pipe(tsc(tscOption)).js.pipe(gulp.dest('js'));
 });
@@ -20,15 +24,23 @@ gulp.task('tsc', function () {
 //   return gulp.src(['ts/option/**/*.ts', 'typings/index.d.ts'])
 //     .pipe(tsc(tscOption)).js.pipe(gulp.dest('js/option'));
 // });
-gulp.task('bundle-config', ['tsc'], function () {
-  return gulp.src('./systemjs.config.js').pipe(gulp.dest('./js'));
+gulp.task('html-copy', ['clean'], function () {
+  return gulp.src(['./ts/**/*.html'])
+    .pipe(gulpCopy('./templates/',{prefix:2}));
 });
-gulp.task('clean',function(cb){return del(['./js']);})
-gulp.task('bundle-dependencies', ['bundle-config','tsc'], function () {
+gulp.task('bundle-config', ['clean'], function () {
+  return gulp.src('./systemjs.config.js').pipe(gulp.dest('./js/'));
+});
+
+gulp.task('bundle-dependencies', ['bundle-config', 'tsc'], function () {
   var builder = new systemjsBuilder('', './systemjs.config.js');
-  return builder.bundle('js/**/* - [js/**/*.js]', './js/dependencies.bundle.min.js', {
+  return builder.bundle('js/**/*.js - [js/**/*.js]', './js/dependencies.bundle.min.js', {
     minify: true,
     mangle: true
-  }).then(function () { console.log('Build complete'); }).catch(function (err) { console.error(err); });
+  }).then(function () {
+    console.log('Build complete');
+  }).catch(function (err) {
+    console.error(err);
+  });
 });
-gulp.task('production', ['clean','bundle-dependencies'], function () { });
+gulp.task('production', ['html-copy','bundle-dependencies','clean'], function () {});

@@ -13,9 +13,9 @@
     // map tells the System loader where to look for things
     map: {
       // our app is within the app folder
-      background: 'js/background',
-      option: 'js/option',
-      popup: 'js/popup',
+      background: 'js/bh-background',
+      option: 'js/bh-option',
+      popup: 'js/bh-popup',
 
       // angular bundles
       '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
@@ -45,15 +45,15 @@
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
       background: {
-        main: 'background',
+        main: 'background-boot',
         defaultExtension: 'js'
       },
       option:{
-        main: 'option',
+        main: 'option-boot',
         defaultExtension: 'js'
       },
       popup:{
-        main: 'popup',
+        main: 'popup-boot',
         defaultExtension: 'js'
       },
       dest: {
