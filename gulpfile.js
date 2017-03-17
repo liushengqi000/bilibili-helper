@@ -5,10 +5,16 @@ var tsc = require('gulp-typescript');
 var del = require('del');
 var systemjsBuilder = require('systemjs-builder');
 var tscOption = require('./tsconfig.json').compilerOptions;
-gulp.task('clean', function (cb) {
-  return del(['./js','./templates']);
+gulp.task('clean-js', function (cb) {
+  return del(['./js/**/*.js']);
+});
+gulp.task('clean-html', function (cb) {
+  return del(['./js/**/*.html']);
 })
-gulp.task('tsc', ['clean'], function () {
+gulp.task('clean-css', function (cb) {
+  return del(['./js/**/*.css']);
+})
+gulp.task('tsc', ['clean-js'], function () {
   return gulp.src(['ts/**/*.ts', 'typings/index.d.ts'])
     .pipe(tsc(tscOption)).js.pipe(gulp.dest('js'));
 });
@@ -24,16 +30,17 @@ gulp.task('tsc', ['clean'], function () {
 //   return gulp.src(['ts/option/**/*.ts', 'typings/index.d.ts'])
 //     .pipe(tsc(tscOption)).js.pipe(gulp.dest('js/option'));
 // });
-gulp.task('html-copy', ['clean'], function () {
+gulp.task('html-copy', ['clean-html'], function () {
   return gulp.src(['./ts/**/*.html'])
     .pipe(gulpCopy('./js/',{prefix:1}));
 });
-gulp.task('css-copy', ['clean'], function () {
+gulp.task('css-copy', ['clean-css'], function () {
   return gulp.src(['./ts/**/*.css'])
     .pipe(gulpCopy('./js/',{prefix:1}));
 });
-gulp.task('bundle-config', ['clean'], function () {
-  return gulp.src('./systemjs.config.js').pipe(gulp.dest('./js/'));
+gulp.task('bundle-config', ['clean-js'], function () {
+  return gulp.src('./systemjs.config.js')
+  .pipe(gulp.dest('./js/'));
 });
 
 gulp.task('bundle-dependencies', ['bundle-config', 'tsc'], function () {
@@ -47,4 +54,6 @@ gulp.task('bundle-dependencies', ['bundle-config', 'tsc'], function () {
     console.error(err);
   });
 });
-gulp.task('production', ['html-copy','css-copy','bundle-dependencies','clean'], function () {});
+gulp.task('ts', ['bundle-dependencies'], function () {});
+gulp.task('copy', ['html-copy','css-copy'], function () {});
+gulp.task('production', ['html-copy','css-copy','bundle-dependencies'], function () {});
