@@ -5,13 +5,12 @@ import { Component, Input, Output, OnInit } from '@angular/core';
     templateUrl: './bh-button.html',
     styleUrls: ['./bh-button.css']
 }) export class BhButtonComponent implements OnInit {
-    @Input() buttonHref: string;
+    @Input() href: string;
     constructor() {}
     ngOnInit() {}
     go() {
-        console.log(this.buttonHref);
         chrome.tabs.create({
-            url: this.buttonHref
+            url: this.href
         })
     }
 }

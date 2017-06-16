@@ -37,8 +37,10 @@
   "scripts": {
     "build": "tsc -p src/",
     "build:watch": "tsc -p src/ -w",
+    "gulp:init": "gulp production",
+    "gulp:watch": "gulp watch",
     "serve": "lite-server -c=bs-config.json",
-    "start": "concurrently \"npm run build:watch\" \"npm run serve\""
+    "start": "concurrently \"npm run gulp:init\" \"npm run gulp:watch\" \"npm run build:watch\""
   },
   "author": "zacyu & ruo",
   "license": "MIT",
