@@ -42,8 +42,8 @@
             "all_frames": false,
             "css": [],
             "js": [
-                "./libs/bilibili_ASS_Danmaku_Downloader.js",
-                "./libs/store.min.js"
+                "./js/libs/bilibili_ASS_Danmaku_Downloader.js",
+                "./js/libs/store.min.js"
             ],
             "run_at": "document_end"
         },
@@ -54,8 +54,8 @@
             "all_frames": false,
             "css": [],
             "js": [
-                "./libs/store.min.js",
-                "./libs/ocrad.min.js"
+                "./js/libs/store.min.js",
+                "./js/libs/ocrad.min.js"
             ],
             "run_at": "document_end"
         }
@@ -77,7 +77,7 @@
         "downloads"
     ],
     "update_url": "https://clients2.google.com/service/update2/crx",
-    "content_security_policy": "script-src 'self' 'sha256-djlbBIFl6eedqc3zmTzhL60KaZ+wwUa/1H2ADQePIgI=' 'sha256-LkCy0gNe/5MkjcPPwkvS2b2owGLxD/jxJ8uvcc3/60A=' 'sha256-nF3es/wPrKnfy95DVEJAtl3jx/p7XLQ8ZvKFZU5VomE=' 'unsafe-eval'; object-src 'self';",
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';",
     "web_accessible_resources": [
         "imgs/icon-32.png",
         "imgs/loading.gif",

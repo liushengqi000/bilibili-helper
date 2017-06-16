@@ -4,7 +4,7 @@
  */
 (function (global) {
   System.config({
-    defaultExtension: 'js',
+    defaultExtension: '',
     defaultJSExtensions: true,
     paths: {
       // paths serve as alias
@@ -48,7 +48,7 @@
         main: 'background-boot',
         defaultExtension: 'js'
       },
-      option:{
+      options:{
         main: 'option-boot',
         defaultExtension: 'js'
       },

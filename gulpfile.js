@@ -1,59 +1,42 @@
-var gulp = require('gulp');
-var gulpCopy = require('gulp-copy');
-var typescript = require('typescript');
-var tsc = require('gulp-typescript');
-var del = require('del');
-var systemjsBuilder = require('systemjs-builder');
-var tscOption = require('./tsconfig.json').compilerOptions;
-gulp.task('clean-js', function (cb) {
-  return del(['./js/**/*.js']);
+let gulp = require('gulp');
+let gulpCopy = require('gulp-copy');
+let typescript = require('typescript');
+let tsc = require('gulp-typescript');
+let del = require('del');
+let systemjsBuilder = require('systemjs-builder');
+let tscOption = require('./tsconfig.json').compilerOptions;
+let watch = require('gulp-watch');
+gulp.task('clean', () => {
+  return del(['./dest/**/*']);
 });
-gulp.task('clean-html', function (cb) {
-  return del(['./js/**/*.html']);
-})
-gulp.task('clean-css', function (cb) {
-  return del(['./js/**/*.css']);
-})
-gulp.task('tsc', ['clean-js'], function () {
+gulp.task('tsc', ['clean'], () => {
   return gulp.src(['ts/**/*.ts', 'typings/index.d.ts'])
-    .pipe(tsc(tscOption)).js.pipe(gulp.dest('js'));
+    .pipe(tsc(tscOption)).js.pipe(gulp.dest('dest/js'));
 });
-// gulp.task('background-tsc', function () {
-//   return gulp.src(['ts/background/**/*.ts', 'typings/index.d.ts'])
-//     .pipe(tsc(tscOption)).js.pipe(gulp.dest('js/background'));
-// });
-// gulp.task('popup-tsc', function () {
-//   return gulp.src(['ts/popup/**/*.ts', 'typings/index.d.ts'])
-//     .pipe(tsc(tscOption)).js.pipe(gulp.dest('js/popup'));
-// });
-// gulp.task('option-tsc', function () {
-//   return gulp.src(['ts/option/**/*.ts', 'typings/index.d.ts'])
-//     .pipe(tsc(tscOption)).js.pipe(gulp.dest('js/option'));
-// });
-gulp.task('html-copy', ['clean-html'], function () {
-  return gulp.src(['./ts/**/*.html'])
-    .pipe(gulpCopy('./js/',{prefix:1}));
+gulp.task('dest-copy', ['clean','tsc'], () => {
+  return gulp.src(['./*.html','./node_modules/rxjs/**/*'])
+    .pipe(gulpCopy('./dest/'));
 });
-gulp.task('css-copy', ['clean-css'], function () {
-  return gulp.src(['./ts/**/*.css'])
-    .pipe(gulpCopy('./js/',{prefix:1}));
+gulp.task('ts-copy', ['clean'], () => {
+  return gulp.src(['./ts/**/*.html','./ts/**/*.css','./ts/**/*.js','./systemjs.config.js'])
+    .pipe(gulpCopy('./dest/js', { prefix: 1 }));
 });
-gulp.task('bundle-config', ['clean-js'], function () {
-  return gulp.src('./systemjs.config.js')
-  .pipe(gulp.dest('./js/'));
+gulp.task('lib-copy', ['clean','dependencies-bundle'], () => {
+  return gulp.src(['./libs/**/*.js'])
+    .pipe(gulpCopy('./dest/js/libs', { prefix: 1 }));
 });
-
-gulp.task('bundle-dependencies', ['bundle-config', 'tsc'], function () {
-  var builder = new systemjsBuilder('', './systemjs.config.js');
-  return builder.bundle('js/**/*.js - [js/**/*.js]', './js/dependencies.bundle.min.js', {
-    minify: true,
-    mangle: true
+gulp.task('dependencies-bundle', ['ts-copy','clean','tsc'], () => {
+  let builder = new systemjsBuilder('', './systemjs.config.js');
+  return builder.bundle('dest/js/**/*.js - [dest/js/**/*.js]', './dest/js/dependencies.bundle.min.js', {
+    minify: true
   }).then(function () {
     console.log('Build complete');
   }).catch(function (err) {
     console.error(err);
   });
 });
-gulp.task('ts', ['bundle-dependencies'], function () {});
-gulp.task('copy', ['html-copy','css-copy'], function () {});
-gulp.task('production', ['html-copy','css-copy','bundle-dependencies'], function () {});
+gulp.task('ts', ['angular2-bundle'], () => { });
+gulp.task('copy', ['html-copy', 'css-copy'], () => { });
+gulp.task('production', ['tsc','dest-copy', 'ts-copy','lib-copy','dependencies-bundle'], () => {
+  return gulp.src(['./manifest.json','./README.md','./LICENSE','./imgs/**/*','./_locales/**/*']).pipe(gulpCopy('./dest'));
+});

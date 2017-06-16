@@ -3,3 +3,4 @@ node_modules/
 dest/
 .vscode/
 js/
+npm-debug.log
