@@ -40,7 +40,7 @@
     "gulp:init": "gulp production",
     "gulp:watch": "gulp watch",
     "serve": "lite-server -c=bs-config.json",
-    "start": "concurrently \"npm run gulp:init\" \"npm run gulp:watch\""
+    "start": "concurrently \"npm run gulp:watch\""
   },
   "author": "zacyu & ruo",
   "license": "MIT",

@@ -41,14 +41,14 @@ gulp.task('dependencies-bundle', ['ts-copy','clean','tsc'], () => {
 gulp.task('ts', ['tsc','ts-copy'], () => { });
 gulp.task('copy', ['html-copy', 'css-copy'], () => { });
 gulp.task('production', ['tsc','dest-copy', 'ts-copy','lib-copy','dependencies-bundle'], () => {
-  return gulp.src(['src/*.html','src/manifest.json','src/README.md','src/LICENSE','src/imgs/**/*','src/_locales/**/*']).pipe(gulpCopy('./dest/', { prefix: 1 }));
+  return gulp.src(['src/*.html','src/styles/*.css','src/manifest.json','src/README.md','src/LICENSE','src/imgs/**/*','src/_locales/**/*']).pipe(gulpCopy('./dest/', { prefix: 1 }));
 });
-gulp.task('watch', function () {
+gulp.task('watch', ['production'], ()=>{
 	// Endless stream mode
     watch(['src/ts/**/*.ts'],()=>{
       gulp.start('tsc');
     });
-    watch(['src/ts/**/*.css','src/ts/**/*.html','src/ts/**/*.js'],{verbose:true}, function () {
+    watch(['src/ts/**/*.css','src/ts/**/*.html','src/**/*.js'],{verbose:true}, function () {
         gulp.src(['src/ts/**/*.css','src/ts/**/*.html','src/ts/**/*.js'])
             .pipe(gulpCopy('dest/js', { prefix: 2 }));
     });

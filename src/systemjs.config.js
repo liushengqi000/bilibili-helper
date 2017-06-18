@@ -4,7 +4,7 @@
  */
 (function (global) {
   System.config({
-    defaultExtension: '',
+    defaultExtension: 'js',
     defaultJSExtensions: true,
     paths: {
       // paths serve as alias
@@ -13,9 +13,9 @@
     // map tells the System loader where to look for things
     map: {
       // our app is within the app folder
-      background: 'js/bh-background',
-      option: 'js/bh-option',
-      popup: 'js/bh-popup',
+      background: 'js/bh-background/background-boot.js',
+      options: 'js/bh-option/option-boot.js',
+      popup: 'js/bh-popup/popup-boot.js',
 
       // angular bundles
       '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
@@ -44,21 +44,6 @@
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
-      background: {
-        main: 'background-boot',
-        defaultExtension: 'js'
-      },
-      options:{
-        main: 'option-boot',
-        defaultExtension: 'js'
-      },
-      popup:{
-        main: 'popup-boot',
-        defaultExtension: 'js'
-      },
-      dest: {
-        defaultExtension: 'js'
-      },
       rxjs: {
         defaultExtension: 'js'
       }
