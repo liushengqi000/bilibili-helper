@@ -13,4 +13,6 @@
     display: inline-block;
     width: 90px;
     margin-bottom: 1px;
+    transition: .3s all;
+    opacity: 1;
 }

@@ -1,12 +1,46 @@
-import { Component, Input, Output, OnInit } from '@angular/core';
+import { 
+    Component, 
+    Input, 
+    Output, 
+    OnInit, 
+    HostListener, 
+    ElementRef 
+} from '@angular/core';
+import {
+    trigger,
+    state,
+    style,
+    animate,
+    transition
+} from '@angular/animations';
 @Component({
     moduleId: module.id,
     selector: 'bh-button',
     templateUrl: './bh-button.html',
-    styleUrls: ['./bh-button.css']
+    styleUrls: ['./bh-button.css'],
+    animations:[
+        trigger('hoverState',[
+            state('hover',style({
+                backgroundColor:'#eee',
+                opacity: 0.5
+            })),
+            transition('void => *', animate('100ms ease-in')),
+            transition('* => void', animate('100ms ease-out'))
+        ])
+    ]
 }) export class BhButtonComponent implements OnInit {
     @Input() href: string;
-    constructor() {}
+    @Input() i18n: string;
+    private  isHover: string;
+    constructor() {
+        
+    }
+    @HostListener('mouseenter') onMouseEnter(){
+        this.isHover = 'hover';
+    }
+    @HostListener('mouseleave') onMouseleave(){
+        this.isHover = '';
+    }
     ngOnInit() {}
     go() {
         chrome.tabs.create({
