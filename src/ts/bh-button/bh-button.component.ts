@@ -4,7 +4,8 @@ import {
     Output, 
     OnInit, 
     HostListener, 
-    ElementRef 
+    ElementRef,
+    ViewEncapsulation
 } from '@angular/core';
 import {
     trigger,
@@ -18,6 +19,7 @@ import {
     selector: 'bh-button',
     templateUrl: './bh-button.html',
     styleUrls: ['./bh-button.css'],
+    encapsulation: ViewEncapsulation.Native,
     animations:[
         trigger('hoverState',[
             state('hover',style({
