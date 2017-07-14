@@ -20,6 +20,7 @@
     "chrome"
   ],
   "angularCompilerOptions":{
-    "genDir": "i18n"
+    "genDir": "i18n",
+    "flatModuleOutFile": "index.js"
   }
 }

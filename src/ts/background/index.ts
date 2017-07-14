@@ -9,16 +9,22 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { BhBackgroundService } from './bh-background.service';
+import { BhBackgroundService } from './background.service';
+import { BHCoreModule } from '../core';
 
 @NgModule({
-  imports: [BrowserModule],
+  imports: [
+    BrowserModule,
+    BHCoreModule
+  ],
   declarations: [],
   bootstrap: [],
-  providers: [BhBackgroundService]
+  providers: [
+    BhBackgroundService
+  ]
 }) export class BhBackgroundModule {
   constructor(private appService: BhBackgroundService) {
     this.appService.writeHeros();
   }
-  ngDoBootstrap(){}
+  ngDoBootstrap() { }
 };

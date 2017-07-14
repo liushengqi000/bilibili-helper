@@ -30,7 +30,7 @@ import {
             transition('* => void', animate('100ms ease-out'))
         ])
     ]
-}) export class BhButtonComponent implements OnInit {
+}) export class BHButtonComponent implements OnInit {
     @Input() href: string;
     @Input() i18n: string;
     private  isHover: string;
