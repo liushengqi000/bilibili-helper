@@ -4,5 +4,5 @@ import { Component } from '@angular/core';
     selector: 'bh-option',
     templateUrl: './option.html',
     styleUrls: ['./option.css']
-}) export class BhOptionComponent {
+}) export class BHOptionComponent {
 }

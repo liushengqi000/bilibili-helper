@@ -17,6 +17,6 @@ import { BHLogger } from './logger.service'
     ],
     exports: [
     ]
-}) export class BhLoggerModule {
+}) export class BHLoggerModule {
     constructor() {}
 }

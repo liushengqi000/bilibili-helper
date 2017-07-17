@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
     selector: 'bh-popup',
     templateUrl: './popup.html',
     styleUrls: ['./popup.css']
-}) export class BhPopupComponent {
+}) export class BHPopupComponent {
 
 }

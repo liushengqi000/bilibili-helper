@@ -6,8 +6,8 @@
  * @Last Modified Time: Mar 17, 2017 3:40 PM 
  * @Description: Modify Here, Please  
  */
-import { platformBrowser } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-import { BhPopupModule } from './index';
+import { BHPopupModule } from './index';
 
-platformBrowser( ).bootstrapModule(BhPopupModule);
+platformBrowserDynamic( ).bootstrapModule(BHPopupModule);

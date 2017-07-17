@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "declaration": true,
+    "stripInternal": false,
+    "rootDir": ".",
+    "baseUrl": ".",
     "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
@@ -8,10 +12,20 @@
     "experimentalDecorators": true,
     "lib": [ "es2015", "dom" ],
     "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true
+    "suppressImplicitAnyIndexErrors": true,
+    "inlineSources": true,
+    "skipLibCheck": true,
+    "paths": {
+      "bilibiliHelper": ["./public_api.ts"],
+      "system": ["./src/libs/system.src.js"]
+    }
   },
   "include": [
-    "ts/**/*"
+    "ts/**/*.ts",
+    "index.ts"
+  ],
+  "files": [
+    "public_api.ts"
   ],
   "exclude": [
     "../node_modules/**/*"
@@ -21,6 +35,8 @@
   ],
   "angularCompilerOptions":{
     "genDir": "i18n",
-    "flatModuleOutFile": "index.js"
+    "strictMetadataEmit": true,
+    "flatModuleOutFile": "index.js",
+    "skipTemplateCodegen": true
   }
 }

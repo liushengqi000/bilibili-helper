@@ -1,5 +1,5 @@
-import { platformBrowser } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-import { BhOptionModule } from './index';
+import { BHOptionModule } from './index';
 
-platformBrowser( ).bootstrapModule(BhOptionModule);
+platformBrowserDynamic( ).bootstrapModule(BHOptionModule);

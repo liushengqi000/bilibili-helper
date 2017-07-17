@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class BhBackgroundService {
+export class BHBackgroundService {
     writeHeros(): void {
         console.log([
             { id: 11, name: 'Mr. Nice' },

@@ -7,8 +7,8 @@
  * @Description: Modify Here, Please  
  */
 
-import { platformBrowser } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-import { BhBackgroundModule } from './index';
+import { BHBackgroundModule } from './index';
 
-platformBrowser( ).bootstrapModule(BhBackgroundModule);
+platformBrowserDynamic( ).bootstrapModule(BHBackgroundModule);

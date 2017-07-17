@@ -2,21 +2,22 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { BhPopupComponent } from './popup.component';
+import { BHPopupComponent } from './popup.component';
 
-import { BHCoreModule } from '../core';
+import { BHButtonModule, BHLoggerModule } from '../core';
 
 @NgModule({
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
-        BHCoreModule
+        BHButtonModule,
+        BHLoggerModule 
     ],
     providers: [],
     declarations: [
-        BhPopupComponent
+        BHPopupComponent
     ],
-    bootstrap: [BhPopupComponent]
-}) export class BhPopupModule {
+    bootstrap: [BHPopupComponent]
+}) export class BHPopupModule {
     ngDoBootstrap() { }
 }

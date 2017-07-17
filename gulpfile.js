@@ -4,7 +4,7 @@ let typescript = require('typescript');
 let tsc = require('gulp-typescript');
 let del = require('del');
 let systemjsBuilder = require('systemjs-builder');
-let tscOption = require('./tsconfig.json').compilerOptions;
+let tscOption = require('./src/tsconfig.json').compilerOptions;
 let watch = require('gulp-watch');
 gulp.task('clean', () => {
   return del(['./dest/**/*']);

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { BHButtonComponent } from './button.component'
+import { BHButtonComponent } from './button.component';
 
 
 @NgModule({
@@ -16,6 +16,6 @@ import { BHButtonComponent } from './button.component'
     exports: [
         BHButtonComponent
     ]
-}) export class BhButtonModule {
+}) export class BHButtonModule {
     constructor() {}
 }

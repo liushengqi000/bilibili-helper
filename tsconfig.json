@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
@@ -8,13 +9,21 @@
     "experimentalDecorators": true,
     "lib": [ "es2015", "dom" ],
     "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true
+    "suppressImplicitAnyIndexErrors": true,
+    "paths": {
+      "bilibiliHelper": [
+        "src/public_api.ts"
+      ]
+    }
   },
   "include": [
     "ts/**/*"
   ],
   "exclude": [
     "node_modules/**/*"
+  ],
+  "files": [
+    "src/public_api.ts"
   ],
   "types": [
     "chrome"

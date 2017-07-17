@@ -17,8 +17,8 @@ import {
 @Component({
     moduleId: module.id,
     selector: 'bh-button',
-    templateUrl: './bh-button.html',
-    styleUrls: ['./bh-button.css'],
+    templateUrl: './button.html',
+    styleUrls: ['./button.css'],
     encapsulation: ViewEncapsulation.Native,
     animations:[
         trigger('hoverState',[

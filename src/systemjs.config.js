@@ -9,14 +9,15 @@
     paths: {
       // paths serve as alias
       'npm:': 'node_modules/',
-      'core': 'js/core/'
     },
     // map tells the System loader where to look for things
     map: {
       // our app is within the app folder
-      background: 'js/background/background-boot.js',
-      options: 'js/options/option-boot.js',
-      popup: 'js/popup/popup-boot.js',
+      'background': 'js/background/background-boot.js',
+      'options': 'js/options/option-boot.js',
+      'popup': 'js/popup/popup-boot.js',
+
+      'core': 'js/core/index.js',
 
       // angular bundles
       '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
