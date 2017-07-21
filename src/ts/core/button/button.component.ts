@@ -26,8 +26,14 @@ import {
                 backgroundColor:'#eee',
                 opacity: 0.5
             })),
-            transition('void => *', animate('100ms ease-in')),
-            transition('* => void', animate('100ms ease-out'))
+            transition('void => *', [
+                // style({transform: 'translateX(-100%)'}),
+                animate('100ms ease-in')
+            ]),
+            transition('* => void', [
+                // style({transform: 'translateX(100%)'}),
+                animate('100ms ease-out')
+            ])
         ])
     ]
 }) export class BHButtonComponent implements OnInit {

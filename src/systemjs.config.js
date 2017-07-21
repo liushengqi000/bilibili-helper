@@ -9,6 +9,7 @@
     paths: {
       // paths serve as alias
       'npm:': 'node_modules/',
+      'core:': 'js/core/'
     },
     // map tells the System loader where to look for things
     map: {
@@ -31,6 +32,10 @@
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
       '@angular/animations': 'npm:@angular/animations/bundles/animations.umd.js',
       '@angular/animations/browser': 'npm:@angular/animations/bundles/animations-browser.umd.js',
+
+      'core/storejs': 'core:storejs/index.js',
+      'core/logger': 'core:logger/index.js',
+      'core/button': 'core:button/index.js',
 
       // other libraries
       'rxjs': 'npm:rxjs',

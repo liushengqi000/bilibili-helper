@@ -1,9 +1,8 @@
-
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { BHLoggerService } from './logger.service'
+
 
 
 @NgModule({
@@ -14,11 +13,10 @@ import { BHLoggerService } from './logger.service'
     declarations: [
     ],
     providers: [
-        BHLoggerService
+        
     ],
     exports: [
-        BHLoggerService
     ]
-}) export class BHLoggerModule {
+}) export class BHStorejsModule {
     constructor() {}
 }

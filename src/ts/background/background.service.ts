@@ -16,4 +16,7 @@ export class BHBackgroundService {
             { id: 20, name: 'Tornado' }
         ])
     }
+    init(): void {
+        
+    }
 }

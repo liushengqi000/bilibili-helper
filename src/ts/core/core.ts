@@ -1,2 +1,3 @@
-export { BHButtonModule } from './Button/index';
-export { BHLoggerModule } from './logger/index';
+export * from './Button';
+export * from './logger';
+export * from './storejs';
