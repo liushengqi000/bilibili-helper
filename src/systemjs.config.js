@@ -33,7 +33,7 @@
       '@angular/animations': 'npm:@angular/animations/bundles/animations.umd.js',
       '@angular/animations/browser': 'npm:@angular/animations/bundles/animations-browser.umd.js',
 
-      'core/storejs': 'core:storejs/index.js',
+      'core/service': 'core:services/index.js',
       'core/logger': 'core:logger/index.js',
       'core/button': 'core:button/index.js',
 

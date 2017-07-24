@@ -10,13 +10,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { BHBackgroundService } from './background.service';
-import { BHButtonModule, BHLoggerModule } from '../core';
+import { BHCoreModule } from '../index';
 
 @NgModule({
   imports: [
     BrowserModule,
-    BHButtonModule,
-    BHLoggerModule
+    BHCoreModule
   ],
   declarations: [],
   bootstrap: [],

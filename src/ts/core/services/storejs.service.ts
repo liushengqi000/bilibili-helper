@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { BHLoggerModule } from '../logger';
+import { BHLoggerService } from './logger.service';
 
 @Injectable()
 export class BHStorejsService {
-    constructor(logger: BHLoggerModule) { }
+    constructor(logger: BHLoggerService) { }
     private storage = window.localStorage;
     isJSON(obj: any) {
         return typeof obj === "object" && Object.prototype.toString.call(obj).toLowerCase() === "[object object]" && !obj.length;
