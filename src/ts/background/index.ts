@@ -10,17 +10,21 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { BHBackgroundService } from './background.service';
-import { BHCoreModule } from '../index';
+import { 
+  BHLoggerService,
+  BHStorejsService
+} from '../core';
 
 @NgModule({
   imports: [
     BrowserModule,
-    BHCoreModule
   ],
   declarations: [],
   bootstrap: [],
   providers: [
-    BHBackgroundService
+    BHBackgroundService,
+    BHLoggerService,
+    BHStorejsService
   ]
 }) export class BHBackgroundModule {
   constructor(private appService: BHBackgroundService) {

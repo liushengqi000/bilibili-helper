@@ -1,5 +1,5 @@
 import { BHButtonModule } from './button/index';
-import {
+export {
     BHLoggerService,
     BHStorejsService
 } from './services/index';
@@ -12,12 +12,10 @@ import { NgModule } from '@angular/core';
         BHButtonModule
     ],
     providers: [
-        BHStorejsService,
-        BHLoggerService
     ],
     declarations: [
     ],
     exports:[
-        BHButtonModule
+        BHButtonModule,
     ]
 }) export class BHCoreModule {}

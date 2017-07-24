@@ -3,7 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { BHOptionComponent } from './option.component';
-import { BHCoreModule } from '../index';
+import { 
+    BHCoreModule,
+    BHLoggerService,
+    BHStorejsService
+} from '../core';
 
 @NgModule({
     imports: [
@@ -13,6 +17,10 @@ import { BHCoreModule } from '../index';
     ],
     declarations: [
         BHOptionComponent
+    ],
+    providers:[
+        BHLoggerService,
+        BHLoggerService
     ],
     bootstrap: [BHOptionComponent]
 }) export class BHOptionModule {

@@ -44,8 +44,16 @@ gulp.task('copy', ['html-copy', 'css-copy'], () => { });
 gulp.task('production', ['tsc','dest-copy', 'ts-copy','lib-copy','dependencies-bundle'], () => {
   gulp.src(['src/ts/**/*.html','src/ts/**/*.css'])
   .pipe(gulpCopy('./dest/js', { prefix: 2 }));
-  return gulp.src(['src/*.html','src/styles/*.css','src/manifest.json','src/README.md','src/LICENSE','src/imgs/**/*','src/_locales/**/*'])
-  .pipe(gulpCopy('./dest/', { prefix: 1 }));
+  return gulp.src([
+    'src/*.html',
+    'src/styles/*.css',
+    'src/manifest.json',
+    'src/README.md',
+    'src/LICENSE',
+    'src/imgs/**/*',
+    'src/_locales/**/*',
+    // 'src/traceur.js'
+  ]).pipe(gulpCopy('./dest/', { prefix: 1 }));
 });
 
 gulp.task('tsc-watch', [], () => {
@@ -54,6 +62,9 @@ gulp.task('tsc-watch', [], () => {
 gulp.task('html-watch', [], () => {
   return gulp.src(['src/ts/**/*.html']).pipe(gulpCopy('dest/js/', { prefix: 2 })); 
 });
+gulp.task('dest-html-watch', [], () => {
+  return gulp.src(['src/*.html']).pipe(gulpCopy('dest/', { prefix: 1 })); 
+});
 gulp.task('css-watch', [], () => {
   return gulp.src(['src/ts/**/*.css']).pipe(gulpCopy('dest/js/', { prefix: 2 })); 
 });
@@ -61,9 +72,11 @@ gulp.task('css-watch', [], () => {
 
 gulp.task('watch', ['production'], ()=>{
 	// Endless stream mode
-    
     return [watch(['src/ts/**/*.html'],{verbose:true}, function () {
       gulp.start('html-watch');
+    }),
+    watch(['src/*.html'],{verbose:true}, function () {
+      gulp.start('dest-html-watch');
     }),
     watch(['src/ts/**/*.css'],{verbose:true}, function () {
       gulp.start('css-watch');

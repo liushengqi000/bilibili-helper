@@ -19,7 +19,7 @@ import {
     selector: 'bh-button',
     templateUrl: './button.html',
     styleUrls: ['./button.css'],
-    encapsulation: ViewEncapsulation.None,
+    // encapsulation: ViewEncapsulation.Emulated,
     animations:[
         trigger('hoverState',[
             state('hover',style({

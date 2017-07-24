@@ -4,7 +4,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { BHPopupComponent } from './popup.component';
 
-import { BHCoreModule } from '../index';
+import { 
+    BHCoreModule,
+    BHLoggerService,
+    BHStorejsService
+} from '../core';
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -12,6 +17,8 @@ import { BHCoreModule } from '../index';
         BHCoreModule
     ],
     providers: [
+        BHLoggerService,
+        BHStorejsService
     ],
     declarations: [
         BHPopupComponent
