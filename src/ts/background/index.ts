@@ -27,8 +27,12 @@ import {
     BHStorejsService
   ]
 }) export class BHBackgroundModule {
-  constructor(private appService: BHBackgroundService) {
-    this.appService.writeHeros();
+  constructor(
+    private BackgroundService: BHBackgroundService,
+    private logger: BHLoggerService
+  ) {
+    this.BackgroundService.writeHeros();
+    this.logger.log('Background init');
   }
   ngDoBootstrap() { }
 };
