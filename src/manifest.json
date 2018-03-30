@@ -7,6 +7,7 @@
   "options_page": "options.html",
   "default_locale": "zh_CN",
   "description": "__MSG_extDescription__",
+  "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
   "background": {
     "page": "background.html",
     "persistent": true

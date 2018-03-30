@@ -28,6 +28,11 @@
     if (!store.enabled) {
         return false;
     }
+    // GAP
+    const _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-39765420-2']);
+    _gaq.push(['_trackPageview']);
+
     // 设置默认播放器
     // store.set('defaulth5', 1);
     store.delete = function(key, value) {
@@ -903,4 +908,11 @@
             }
         }
     }
+})();
+
+// GAP
+(function() {
+    const ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = 'https://ssl.google-analytics.com/ga.js';
+    const s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
