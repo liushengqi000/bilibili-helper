@@ -2331,7 +2331,9 @@
                         }).fail(() => {
                             giftData.complete = false;
                         }).always(() => {
-                            Live.giftpackage.sendPanel.sendLineAjax(counter - 1, giftsData);
+                            //Live.giftpackage.sendPanel.sendLineAjax(counter - 1, giftsData);
+                            Live.giftpackage.sendPanel.sendLineAjax(counter - 1, giftsData, submitBtnDOM);
+                            //缺失DOM参数导致successCallback回调中,liveToast报错
                         });
                     } else {
                         Live.giftpackage.mainPanel.hide();
